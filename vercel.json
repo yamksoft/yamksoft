@@ -5,6 +5,18 @@
             "destination": "http://yamksoft.runasp.net/api/:path*"
         },
         {
+            "source": "/robots.txt",
+            "destination": "/robots.txt"
+        },
+        {
+            "source": "/sitemap.xml",
+            "destination": "/sitemap.xml"
+        },
+        {
+            "source": "/google8e0bc8870fe42ca3.html",
+            "destination": "/google8e0bc8870fe42ca3.html"
+        },
+        {
             "source": "/(.*)",
             "destination": "/index.html"
         }
