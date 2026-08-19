@@ -1,0 +1,86 @@
+.status-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background-color: var(--sidebar-bg);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    z-index: 1000;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.status-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.status-item svg {
+    opacity: 0.7;
+}
+
+.online-badge {
+    color: var(--success-color);
+    background-color: rgba(16, 185, 129, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.divider {
+    color: var(--border-color);
+    margin: 0 4px;
+}
+
+.text-truncate {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .status-bar {
+        font-size: 11px;
+        padding: 0 8px;
+    }
+
+    .time-info {
+        display: none;
+        /* Hide time on very small screens or show simplified */
+    }
+
+    .system-info .status-item:not(:first-child) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .status-section.system-info {
+        display: none;
+    }
+
+    .time-info {
+        display: flex;
+        /* Show time again on mobile if space allows, or specific items */
+    }
+
+    .status-bar {
+        justify-content: space-between;
+    }
+}

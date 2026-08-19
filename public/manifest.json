@@ -1,0 +1,21 @@
+{
+    "short_name": "YamkSoft",
+    "name": "YamkSoft",
+    "icons": [
+        {
+            "src": "images/desktop_icon_512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "images/desktop_icon_256.png",
+            "type": "image/png",
+            "sizes": "256x256",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#0061ff",
+    "background_color": "#ffffff"
+}

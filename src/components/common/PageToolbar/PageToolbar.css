@@ -1,0 +1,127 @@
+.page-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-4);
+}
+
+.toolbar-search {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-icon {
+    position: absolute;
+    right: var(--spacing-3);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    padding: var(--spacing-2) var(--spacing-4);
+    padding-right: calc(var(--spacing-4) + 24px);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    transition: border-color var(--transition-fast);
+}
+
+.search-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--border-focus);
+}
+
+.toolbar-actions {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.toolbar-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+}
+
+.toolbar-btn--primary {
+    background: var(--brand-primary);
+    color: var(--text-inverse);
+}
+
+.toolbar-btn--primary:hover:not(:disabled) {
+    background: var(--brand-primary-hover);
+}
+
+.toolbar-btn--secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.toolbar-btn--secondary:hover:not(:disabled) {
+    background: var(--border-secondary);
+}
+
+.toolbar-btn--danger {
+    background: var(--error);
+    color: var(--text-inverse);
+}
+
+.toolbar-btn--danger:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.toolbar-btn--success {
+    background: var(--success);
+    color: var(--text-inverse);
+}
+
+.toolbar-btn--success:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.toolbar-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .toolbar-search {
+        max-width: 100%;
+    }
+
+    .toolbar-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .toolbar-btn span {
+        display: none;
+    }
+}

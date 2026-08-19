@@ -1,0 +1,263 @@
+.open-tabs-container {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--bg-secondary);
+    /* Match page background or slightly darker */
+    border-bottom: 1px solid var(--border-color);
+    padding: 4px 12px 0 12px;
+    height: 48px;
+    /* Increased to fit scrollbar */
+    overflow: visible;
+    gap: 8px;
+}
+
+.tabs-scroll-area {
+    display: flex;
+    flex: 1;
+    overflow-x: scroll;
+    /* Always show scrollbar */
+    overflow-y: hidden;
+    scrollbar-width: auto;
+    /* Show normal scrollbar */
+    gap: 4px;
+    height: 40px;
+    align-items: flex-start;
+}
+
+.tabs-scroll-area::-webkit-scrollbar {
+    height: 8px;
+    display: block;
+}
+
+.tabs-scroll-area::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    margin: 0 4px;
+}
+
+.tabs-scroll-area::-webkit-scrollbar-thumb {
+    background: var(--text-tertiary);
+    border-radius: 4px;
+    min-width: 40px;
+}
+
+.tabs-scroll-area::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+.tab-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    min-width: 120px;
+    /* Slightly increased */
+    max-width: 200px;
+    height: 32px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    position: relative;
+    top: 4px;
+    /* Push down to align bottom with container border */
+    flex-shrink: 0;
+    /* IMPORTANT: Never shrink tabs, force scroll instead */
+}
+
+.tab-item:hover {
+    background-color: var(--hover-bg);
+}
+
+.tab-item.active {
+    background-color: var(--bg-secondary);
+    /* Usually white or lighter */
+    color: var(--primary-color);
+    border-color: var(--border-color);
+    border-bottom: 1px solid var(--bg-secondary);
+    /* Hide bottom border to merge with content */
+    z-index: 10;
+    top: 1px;
+    /* Pop up slightly */
+    height: 35px;
+    font-weight: 500;
+}
+
+.tab-icon {
+    opacity: 0.7;
+}
+
+.tab-item.active .tab-icon {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.tab-title {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tab-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.tab-item:hover .tab-close-btn,
+.tab-item.active .tab-close-btn {
+    opacity: 1;
+}
+
+.tab-close-btn:hover {
+    background-color: var(--error-bg);
+    color: var(--error-color);
+}
+
+.close-all-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 4px;
+    position: relative;
+    height: 28px;
+}
+
+.close-all-btn:hover {
+    background-color: var(--hover-bg);
+    color: var(--error-color);
+}
+
+.close-icon-small {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    background-color: var(--bg-secondary);
+    border-radius: 50%;
+}
+
+/* ===== Responsive للتابلت ===== */
+@media (max-width: 1024px) {
+    .tab-item {
+        min-width: 80px;
+        max-width: 150px;
+        font-size: 12px;
+        padding: 0 10px;
+    }
+
+    .close-all-btn {
+        padding: 4px 6px;
+    }
+}
+
+/* ===== Responsive للموبايل ===== */
+@media (max-width: 768px) {
+    .open-tabs-container {
+        padding: 2px 8px 0;
+        height: 52px;
+        /* Increased further to ensure scrollbar fits */
+        gap: 4px;
+        align-items: flex-start;
+        overflow: visible;
+    }
+
+    .tabs-scroll-area {
+        height: 44px;
+        padding-bottom: 8px;
+        overflow-x: scroll !important;
+        /* Force scroll */
+    }
+
+    /* Force scrollbar on mobile with high contrast */
+    .tabs-scroll-area::-webkit-scrollbar {
+        height: 8px !important;
+        display: block !important;
+        background: var(--bg-tertiary);
+        border-radius: 4px;
+    }
+
+    .tabs-scroll-area::-webkit-scrollbar-thumb {
+        background: #94a3b8 !important;
+        /* Fixed visible color (Slate-400) */
+        border-radius: 4px;
+        border: 1px solid var(--bg-primary);
+        display: block !important;
+    }
+
+    .tab-item {
+        min-width: 60px;
+        max-width: 120px;
+        padding: 0 8px;
+        font-size: 11px;
+        height: 28px;
+        gap: 4px;
+        margin-bottom: 4px;
+    }
+
+    .tab-item.active {
+        height: 31px;
+    }
+
+    .tab-close-btn {
+        width: 14px;
+        height: 14px;
+        opacity: 1;
+        /* Always visible on mobile for touch */
+    }
+
+    .close-all-btn {
+        height: 24px;
+        padding: 2px 6px;
+    }
+}
+
+/* ===== Responsive للموبايل الصغير ===== */
+@media (max-width: 480px) {
+    .open-tabs-container {
+        padding: 2px 4px 0;
+        height: 48px;
+        /* Keep height for scrollbar */
+    }
+
+    .tab-item {
+        min-width: fit-content;
+        /* Allow growing to fit text */
+        max-width: 140px;
+        /* Cap width */
+        padding: 0 8px;
+        font-size: 11px;
+        flex-shrink: 0;
+        /* NEVER shrink below content size, force scroll */
+    }
+
+    /* Show icons again */
+    .tab-icon {
+        display: block;
+        width: 14px;
+        height: 14px;
+    }
+
+    .tab-close-btn {
+        margin-right: 4px;
+    }
+}

@@ -1,0 +1,134 @@
+/* استخدم متغيرات الثيم فقط */
+
+.dashboard-page {
+    padding: var(--spacing-6);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-8);
+}
+
+.dashboard-info-panel {
+    align-items: flex-start;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+    padding: var(--spacing-6);
+}
+
+.dashboard-info-panel__icon {
+    align-items: center;
+    background: rgba(var(--brand-primary-rgb), 0.08);
+    border-radius: var(--radius-md);
+    color: var(--brand-primary);
+    display: flex;
+    flex: 0 0 48px;
+    height: 48px;
+    justify-content: center;
+    width: 48px;
+}
+
+.dashboard-info-panel h3 {
+    color: var(--text-primary);
+    font-size: var(--font-size-xl);
+    margin: 0 0 var(--spacing-2);
+}
+
+.dashboard-info-panel p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.dashboard-shortcuts {
+    display: grid;
+    gap: var(--spacing-3);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-bottom: var(--spacing-8);
+}
+
+.dashboard-shortcuts a {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-weight: 700;
+    padding: var(--spacing-4);
+    text-align: center;
+    text-decoration: none;
+}
+
+.dashboard-shortcuts a:hover {
+    border-color: var(--brand-primary);
+    color: var(--brand-primary);
+}
+
+@media (max-width: 1024px) {
+    .dashboard-grid-container {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    color: var(--color-error);
+}
+
+.error-container button {
+    margin-top: var(--spacing-4);
+    background: var(--brand-primary);
+    color: white;
+    padding: var(--spacing-2) var(--spacing-4);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.error-container button:hover {
+    background: var(--brand-primary-dark);
+}
+
+/* ===== Responsive للموبايل ===== */
+@media (max-width: 768px) {
+    .dashboard-page {
+        padding: var(--spacing-3);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-3);
+        margin-bottom: var(--spacing-4);
+    }
+
+    .error-container {
+        min-height: 250px;
+    }
+}
+
+/* ===== Responsive للموبايل الصغير ===== */
+@media (max-width: 480px) {
+    .dashboard-page {
+        padding: var(--spacing-2);
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2);
+    }
+
+    .dashboard-info-panel {
+        padding: var(--spacing-4);
+    }
+}

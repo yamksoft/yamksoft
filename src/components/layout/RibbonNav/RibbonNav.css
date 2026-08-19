@@ -1,0 +1,335 @@
+.ribbon-container {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.ribbon-tabs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-elevated);
+    /* Slightly different header bg */
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 8px;
+    height: 36px;
+}
+
+.ribbon-tabs-list {
+    display: flex;
+    gap: 2px;
+    height: 100%;
+}
+
+.ribbon-tab {
+    background: transparent;
+    border: none;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    padding: 0 16px;
+    cursor: pointer;
+    font-size: 14px;
+    /* Increased font size */
+    color: var(--text-secondary);
+    height: 100%;
+    transition: all 0.2s;
+    position: relative;
+    top: 1px;
+    /* Overlap border */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Space between icon and text */
+}
+
+.ribbon-tab:hover {
+    background-color: var(--hover-bg);
+    color: var(--text-primary);
+}
+
+.ribbon-tab.active {
+    background-color: var(--bg-primary);
+    color: var(--primary-color);
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-top: 2px solid var(--primary-color);
+    font-weight: 500;
+}
+
+.ribbon-collapse-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.ribbon-collapse-btn:hover {
+    background-color: var(--hover-bg);
+}
+
+.ribbon-content {
+    padding: 8px 12px;
+    /* Reduce padding */
+    background-color: var(--bg-primary);
+    min-height: 50px;
+    /* Reduced height */
+    display: flex;
+    align-items: flex-start;
+    overflow-x: auto;
+}
+
+.ribbon-container.collapsed .ribbon-content {
+    display: none;
+}
+
+.ribbon-group {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border-color);
+    padding: 0 16px;
+}
+
+.ribbon-group:last-child {
+    border-left: none;
+}
+
+.ribbon-group-title {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    text-align: center;
+    margin-bottom: 8px;
+    display: none;
+    /* Often visible at bottom, hiding for now as per design preference */
+}
+
+.ribbon-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.ribbon-button {
+    display: flex;
+    flex-direction: row;
+    /* Horizontal layout */
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: var(--text-primary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    min-width: auto;
+    /* Remove fixed width constraints */
+    max-width: none;
+    text-align: left;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+    gap: 8px;
+    /* Space between icon and text */
+}
+
+.ribbon-button:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--border-color);
+}
+
+.ribbon-button.active {
+    background-color: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary-color);
+    border-color: rgba(var(--primary-rgb), 0.2);
+}
+
+.ribbon-icon-wrapper {
+    margin-bottom: 0;
+    /* Remove bottom margin */
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.ribbon-button:hover .ribbon-icon-wrapper {
+    color: var(--primary-color);
+}
+
+.ribbon-button.active .ribbon-icon-wrapper {
+    color: var(--primary-color);
+}
+
+.ribbon-button-label {
+    font-size: 13px;
+    /* Slightly larger for readability in row mode */
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* ===== Responsive للتابلت ===== */
+@media (max-width: 1024px) {
+    .ribbon-tabs-list {
+        overflow-x: auto;
+        scrollbar-width: thin;
+        flex: 1;
+    }
+
+    .ribbon-tabs-list::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .ribbon-tabs-list::-webkit-scrollbar-thumb {
+        background: var(--border-secondary);
+        border-radius: 4px;
+    }
+
+    .ribbon-tab {
+        padding: 0 12px;
+        font-size: 13px;
+        flex-shrink: 0;
+    }
+
+    .ribbon-content {
+        padding: 6px 8px;
+        min-height: 44px;
+    }
+
+    .ribbon-group {
+        padding: 0 12px;
+    }
+
+    .ribbon-buttons {
+        gap: 8px;
+    }
+
+    .ribbon-button {
+        padding: 4px 8px;
+    }
+
+    .ribbon-button-label {
+        font-size: 12px;
+    }
+}
+
+/* ===== Responsive للموبايل ===== */
+@media (max-width: 768px) {
+    .ribbon-tabs-header {
+        height: 48px;
+        /* Increased for scrollbar */
+        padding: 0 4px;
+        overflow: visible;
+    }
+
+    .ribbon-tabs-list {
+        gap: 0;
+        overflow-x: scroll !important;
+        padding-bottom: 4px;
+    }
+
+    .ribbon-tabs-list::-webkit-scrollbar {
+        height: 6px !important;
+        display: block !important;
+    }
+
+    .ribbon-tabs-list::-webkit-scrollbar-thumb {
+        background: #94a3b8 !important;
+        border-radius: 3px;
+    }
+
+    .ribbon-tab {
+        padding: 0 10px;
+        font-size: 12px;
+        gap: 4px;
+        height: 36px;
+        /* Reduce tab height to fit in header with scrollbar */
+    }
+
+    .ribbon-tab svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .ribbon-content {
+        padding: 4px 6px;
+        min-height: 54px;
+        /* Increased */
+        overflow-x: scroll !important;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+    }
+
+    .ribbon-content::-webkit-scrollbar {
+        height: 6px !important;
+        display: block !important;
+    }
+
+    .ribbon-content::-webkit-scrollbar-thumb {
+        background: #94a3b8 !important;
+        border-radius: 3px;
+    }
+
+    .ribbon-group {
+        padding: 0 8px;
+        flex-shrink: 0;
+    }
+
+    .ribbon-buttons {
+        gap: 4px;
+        flex-wrap: nowrap;
+    }
+
+    .ribbon-button {
+        padding: 4px 6px;
+        gap: 4px;
+        flex-shrink: 0;
+    }
+
+    .ribbon-button-label {
+        font-size: 11px;
+    }
+
+    .ribbon-icon-wrapper svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ===== Responsive للموبايل الصغير ===== */
+@media (max-width: 480px) {
+    .ribbon-tabs-header {
+        height: 36px;
+    }
+
+    .ribbon-tab {
+        padding: 0 6px;
+        font-size: 10px;
+    }
+
+    /* إظهار النص بحجم أصغر */
+    .ribbon-button-label {
+        display: inline;
+        font-size: 9px;
+    }
+
+    .ribbon-button {
+        padding: 4px;
+        gap: 2px;
+        flex-direction: column;
+        min-width: 48px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .ribbon-content {
+        min-height: 50px;
+    }
+
+    .ribbon-icon-wrapper svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .ribbon-buttons {
+        gap: 2px;
+    }
+}

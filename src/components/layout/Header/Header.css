@@ -1,0 +1,238 @@
+.header {
+    height: var(--header-height);
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-4);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+}
+
+.search-bar {
+    position: relative;
+    width: 300px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: var(--spacing-3);
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+}
+
+.search-bar input {
+    padding-right: var(--spacing-10);
+    background-color: var(--bg-secondary);
+    border-color: transparent;
+}
+
+.search-bar input:focus {
+    background-color: var(--bg-primary);
+    border-color: var(--border-focus);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+}
+
+.notification-btn {
+    position: relative;
+}
+
+.badge-dot {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--error);
+    border-radius: 50%;
+    border: 2px solid var(--bg-primary);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding-right: var(--spacing-4);
+    border-right: 1px solid var(--border-primary);
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    background-color: var(--brand-primary);
+    color: var(--text-inverse);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.user-role {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+}
+
+/* ===== Responsive للشاشات الصغيرة ===== */
+@media (max-width: 768px) {
+    .header {
+        padding: 0 var(--spacing-3);
+    }
+
+    .search-bar {
+        display: none;
+    }
+
+    .header-right {
+        gap: var(--spacing-2);
+    }
+
+    .user-info {
+        display: none;
+    }
+
+    .user-profile {
+        padding-right: 0;
+        border-right: none;
+    }
+}
+
+/* Quick Actions Toolbar */
+.quick-actions-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-group {
+    display: flex;
+    align-items: center;
+    background-color: #2a2a2a;
+    /* Dark background for groups */
+    border-radius: 8px;
+    padding: 2px;
+}
+
+.header-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #a0a0a0;
+    border-radius: 6px;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.header-action-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.action-divider {
+    width: 1px;
+    height: 24px;
+    background-color: #333;
+    margin: 0 4px;
+}
+
+/* Icon Colors */
+.header-action-btn.success {
+    color: #10b981;
+}
+
+.header-action-btn.danger {
+    color: #ef4444;
+}
+
+.header-action-btn.warning {
+    color: #f59e0b;
+}
+
+.header-action-btn.info {
+    color: #3b82f6;
+}
+
+.header-action-btn.primary {
+    color: #6366f1;
+}
+
+.header-action-btn.purple {
+    color: #a855f7;
+}
+
+.action-badge-icon {
+    position: absolute;
+    bottom: 6px;
+    right: 4px;
+    background-color: #2a2a2a;
+    border-radius: 50%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .quick-actions-toolbar {
+        display: none;
+        /* Hide on smaller screens or use a dropdown */
+    }
+
+    .search-bar {
+        display: none;
+        /* Hide search bar if taking up too much space, or adjust */
+    }
+}
+
+/* ===== Responsive للموبايل الصغير ===== */
+@media (max-width: 480px) {
+    .header {
+        height: 56px;
+        padding: 0 var(--spacing-2);
+    }
+
+    .header-left {
+        gap: var(--spacing-2);
+    }
+
+    .header-right {
+        gap: var(--spacing-1);
+    }
+
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-size-sm);
+    }
+
+    .btn-icon {
+        padding: var(--spacing-2);
+    }
+}
