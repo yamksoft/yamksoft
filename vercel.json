@@ -1,4 +1,21 @@
 {
+    "redirects": [
+        {
+            "source": "/robots.txt/",
+            "destination": "/robots.txt",
+            "permanent": true
+        },
+        {
+            "source": "/sitemap.xml/",
+            "destination": "/sitemap.xml",
+            "permanent": true
+        },
+        {
+            "source": "/google8e0bc8870fe42ca3.html/",
+            "destination": "/google8e0bc8870fe42ca3.html",
+            "permanent": true
+        }
+    ],
     "rewrites": [
         {
             "source": "/api/:path*",
